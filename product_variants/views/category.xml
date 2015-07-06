@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<record id="ext_product_category_form_view" model="ir.ui.view">
+            <field name="name">ext.product.category.form.view</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <sheet position="inside">
+                  <notebook>
+                    <page string="Product Type" >
+                        <group>
+                            <field name="manual_variants" />
+                            <field name="menu_parent" attrs="{'invisible': [('manual_variants', '=', False)]}"/>
+                        </group>
+                        <separator string="Product Attributes" attrs="{'invisible': [('manual_variants', '=', False)]}"/>
+                        <field name="product_attributes" nolabel="1" attrs="{'invisible': [('manual_variants', '=', False)]}"/>
+                        <separator string="Variant Attributes" attrs="{'invisible': [('manual_variants', '=', False)]}"/>
+                        <field name="variant_attributes" nolabel="1" attrs="{'invisible': [('manual_variants', '=', False)]}"/>
+                    </page>
+                  </notebook>  
+                </sheet>
+            </field>
+        </record>
+
+    </data>
+</openerp>

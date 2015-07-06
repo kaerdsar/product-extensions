@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<record id="ext_attribute_tree_view" model="ir.ui.view">
+            <field name="name">ext.product.attribute.tree</field>
+            <field name="model">product.attribute</field>
+            <field name="inherit_id" ref="product.attribute_tree_view" />
+			<field name="arch" type="xml">
+				<tree string="Variant Values" position="replace">
+                    <tree string="Attributes" >
+		                <field name="name"/>
+						<field name="attribute_type" />
+                        <field name="belongs_to" />
+						<field name="mandatory" />
+						<button name="pull_values_from_market" type="object" string="Pull Values" icon="gtk-apply" />
+		            </tree>
+                </tree>
+            </field>
+        </record>
+		
+		<record id="ext_attribute_form_view" model="ir.ui.view">
+	        <field name="name">ext.product.attribute.form</field>
+	        <field name="model">product.attribute</field>
+	        <field name="arch" type="xml">
+	            <form string="Attribute">
+		        	<header>
+		            	<button name="pull_values_from_source" type="object" string="Pull Values" class="oe_highlight"/>
+		            </header>
+		            <sheet>
+		                <group>
+		                	<field name="name" />
+		                	<field name="belongs_to" />
+		                    <field name="attribute_type" />
+                            <field name="mandatory" />
+                            <field name="show_in_name" />
+                            <field name="sequence" />
+                            <field name="source" />
+		                </group>
+		               	<separator />
+                        <field name="value_ids" >
+                            <tree string="Values" editable="top">
+                                <field name="name" />
+                            </tree>
+                        </field>
+		            </sheet>
+	            </form>
+	        </field>
+	    </record>
+
+    </data>
+</openerp>
