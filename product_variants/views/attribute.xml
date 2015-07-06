@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="product.attribute_tree_view" />
 			<field name="arch" type="xml">
 				<tree string="Variant Values" position="replace">
-                    <tree string="Attributes" >
+                    <tree string="Attributes" editable="top">
 		                <field name="name"/>
 						<field name="attribute_type" />
                         <field name="belongs_to" />

@@ -44,7 +44,7 @@ class ProductCategory(models.Model):
     @api.model
     def create(self, vals):
         obj = super(ProductCategory, self).create(vals)
-        if obj.define_product_type and obj.menu_parent:
+        if obj.manual_variants and obj.menu_parent:
             obj.create_menu_and_action()
         return obj
         
