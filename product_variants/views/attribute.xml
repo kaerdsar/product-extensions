@@ -13,6 +13,10 @@
 						<field name="attribute_type" />
                         <field name="belongs_to" />
 						<field name="mandatory" />
+						<field name="sequence" />
+						<field name="placeholder" />
+						<field name="style" />
+						<field name="show_in_website" />
 						<button name="pull_values_from_market" type="object" string="Pull Values" icon="gtk-apply" />
 		            </tree>
                 </tree>

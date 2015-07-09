@@ -38,6 +38,10 @@ class ProductAttribute(models.Model):
     sequence = fields.Integer('Sequence', default=0)
     source = fields.Char('Source')
     
+    show_in_website = fields.Boolean('Show in Website')
+    placeholder = fields.Char("Website placeholder")
+    style = fields.Char("Website style")
+    
     @api.one
     def pull_values_from_source(self):
         model = self.env[self.source]
