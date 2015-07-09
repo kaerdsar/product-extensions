@@ -142,7 +142,7 @@ class ProductProduct(models.Model):
     def set_attribute_value(self, field, value):
         pav = self.env['product.attribute.value']
         for x in self.categ_id.variant_attributes:
-            if field == slug(x.name):
+            if field == x.name or field == slug(x.name):
                 domain_I = [('name', '=', value), ('attribute_id', '=', x.id)]
                 values = pav.search(domain_I)
                 if values:
