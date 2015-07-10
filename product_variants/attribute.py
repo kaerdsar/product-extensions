@@ -40,7 +40,7 @@ class ProductAttribute(models.Model):
     
     show_in_website = fields.Boolean('Show in Website')
     placeholder = fields.Char("Website placeholder")
-    style = fields.Char("Website style")
+    style = fields.Selection([('select','Select'), ('input','Input')], "Website class")
     
     @api.one
     def pull_values_from_source(self):
