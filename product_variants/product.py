@@ -160,10 +160,16 @@ class ProductProduct(models.Model):
     def name_get(self):
         result = []
         for record in self:
-            if record.variant:
-                name = '%s [%s]' % (record.name, record.variant)
-            else:
+            variant = ""
+            for attribute_line in record.product_tmpl_id.attribute_line_ids:
+                if attribute_line.attribute_id.show_in_name and attribute_line.value_ids:
+                    for value in attribute_line.value_ids:
+                        variant += "%s "%value.name
+            if variant == "":
                 name = record.name
+            else:
+                record.variant = variant
+                name = "%s [%s]" % (record.name, record.variant)
             result.append((record.id, name))
         return result
 
