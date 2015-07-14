@@ -191,3 +191,12 @@ class ProductProduct(models.Model):
                     dynamic_data[key] = data[key]
                     del data[key]
         return data, dynamic_data
+
+    def _product_price(self, cr, uid, ids, name, arg, context=None):
+		res = {}
+		product = self.pool.get('product.product').browse(cr, uid, ids[0], context=context)
+		for attribute_value in product.attribute_value_ids:
+			if attribute_value.attribute_id.name == 'Variant Price':
+				res[ids[0]] = {'price':attribute_value.name}
+				return res
+		return super(ProductProduct, self)._product_price(cr, uid, ids, name, arg, context=context)
